@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular</title>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script  src="app.js"></script>
+    <style>
+        div{
+            border:1px solid;
+        }
+    </style>
+</head>
+<body ng-app="firstApp">
+
+<div ng-controller="testCtrl as test">
+    Hello world
+
+    <input type="text" ng-model="test.url">
+
+    <button ng-click="test.speak()">Click</button>
+
+    <h1>{{test.name}}</h1>
+
+    <p ng-show="test.showError">
+        This is an error
+    </p>
+    <p ng-hide="test.showError">
+        This is not an error
+    </p>
+    <p ng-if="test.showError">
+        This is shown
+    </p>
+    <img ng-src="{{test.url}}">
+
+
+    <ul>
+        <li name="{{nation.code}}" ng-repeat="nation in test.nations">Code :{{nation.code}} Name : {{nation.name}}</li>
+    </ul>
+
+
+
+</div>
+
+<div ng-controller="demoCtrl as demo">
+    Hello world
+
+    <input type="text" ng-model="demo.name">
+
+    <h1>{{demo.name}}</h1>
+</div>
+
+
+
+
+</body>
+</html>

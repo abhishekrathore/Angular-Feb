@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>Controller Communication</title>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="service.js"></script>
+</head>
+<body ng-app="ctrlcom">
+
+<div ng-controller="firstCtrl as first">
+    First <input type="text" ng-model="first.data.text">
+    <p>{{first.data.text}}</p>
+    <button ng-click="first.status()">status</button>
+    {{first.name}}
+    {{title}}
+</div>
+
+
+
+<div ng-controller="secondCtrl as second">
+   Second <input type="text" ng-model="second.data.text">
+    <p>{{second.data.text}}</p>
+    <button ng-click="second.status()">status</button>
+
+    {{second.name}}
+
+    {{title}}
+
+
+</div>
+
+
+</body>
+</html>
