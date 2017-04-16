@@ -1,0 +1,17 @@
+{
+  "name": "filters",
+  "homepage": "https://github.com/abhishekrathore/Angular-Feb",
+  "authors": [
+    "Abhishek Rathore <rathore.abhishek87@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

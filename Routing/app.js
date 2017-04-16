@@ -3,14 +3,9 @@
  */
 angular.module("routing",["ngRoute"])
 
-    .config(config)
     .controller("firstCtrl",firstCtrl)
     .controller("secondCtrl",secondCtrl)
     .factory("dataService",dataService);
-
-
-
-
 
 
 function firstCtrl(dataService,$location,$timeout){
@@ -24,23 +19,16 @@ function firstCtrl(dataService,$location,$timeout){
     },2000);
 }
 
-function secondCtrl(dataService){
+function secondCtrl(dataService,$routeParams){
 
 
     var second = this;
+    second.cat = $routeParams.category
     second.human = dataService;
     console.log("secondCtrl")
 }
 
-function config($routeProvider){
 
-
-    $routeProvider
-        .when("/first", {templateUrl:"partials/first.html"})
-        .when("/second", {templateUrl:"partials/second.html"})
-        .otherwise({redirectTo:"/second"});
-
-}
 
 function dataService(){
     return {}

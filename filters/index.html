@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>filter</title>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-app="filter">
+
+<div ng-controller="demoCtrl as demo">
+
+    <input type="text" ng-model="demo.search.first_name">
+    <input type="text" ng-model="demo.search.last_name">
+
+    {{demo.search}}
+    <ul>
+    <li ng-repeat="person in demo.people | filter: demo.search ">
+         Name : {{person.first_name | uppercase}} {{person.last_name}} [{{person.gender}}]  <{{person.email}}>
+    </li>
+</ul>
+
+
+</div>
+
+
+</body>
+</html>
