@@ -3,20 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <title>filter</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="app.js"></script>
+
 </head>
 <body ng-app="filter">
 
 <div ng-controller="demoCtrl as demo">
+    Category : {{demo.searchCategory}}  Object : {{demo.search}} Sort: {{demo.sort}}
+    <div class="row well-sm alert-danger">
+        <div class="col-xs-4 text-center">
+            <input type="text" ng-model="demo.search[demo.searchCategory]" placeholder="Search">
+        </div>
+        <div class="col-xs-4 text-center">
+              <input type="radio" name="search" value="company" ng-model="demo.searchCategory" ng-click="demo.clear()">  Company
+              <input type="radio" name="search" value="appName" ng-model="demo.searchCategory" ng-click="demo.clear()">  App name
+              <input type="radio" name="search" value="appId" ng-model="demo.searchCategory" ng-click="demo.clear()">  App Id
+        </div>
 
-    <input type="text" ng-model="demo.search.first_name">
-    <input type="text" ng-model="demo.search.last_name">
 
-    {{demo.search}}
-    <ul>
-    <li ng-repeat="person in demo.people | filter: demo.search ">
-         Name : {{person.first_name | uppercase}} {{person.last_name}} [{{person.gender}}]  <{{person.email}}>
+
+        <div class="col-xs-4 text-center">
+            <select ng-model="demo.sort">
+                <option value="appName">Alphabetical</option>
+                <option value="price">Price</option>
+                <option value="date">Date</option>
+            </select>
+
+        </div>
+    </div>
+
+
+    <ul class="row list-group">
+    <li class="col-xs-3 list-group-item" ng-repeat="app in demo.apps | filter: demo.search  | orderBy : demo.sort">
+        <div class="row">
+        <img  class="col-xs-12" ng-src="{{app.avatar}}" />
+         <h4 class="col-xs-12 text-center">
+             {{app.appName | reverse}}
+
+         </h4>
+            <p class="col-xs-12 text-center" style="text-overflow:ellipsis;white-space: nowrap">
+                {{app.appId}}
+            </p>
+            <p class="col-xs-12 text-center">
+                [{{app.company}}]
+            </p>
+            <span class="col-xs-6">
+                {{app.price}}
+            </span>
+             <span class="col-xs-6 text-right ">
+                {{app.date | date:'d-MMM'}}
+            </span>
+            <span>
+                {{33.444 | number:2}}
+            </span>
+
+        </div>
+
     </li>
 </ul>
 
