@@ -11,6 +11,8 @@
 
 <div ng-controller="testCtrl as test">
 
+    <input type="text" ng-model="test.name">
+    <button ng-click="test.getData()">Get Data</button>
     <div ng-hide="test.posts">Loading .....</div>
 
  <div ng-repeat="post in test.posts">
@@ -29,6 +31,16 @@
 
 
  </div>
+
+    <div>
+        SUPERHERO
+        <div ng-repeat="char in test.characters">
+            {{char.name}} - {{char.description}}
+            <img ng-src="{{char.thumbnail.path}}.{{char.thumbnail.extension}}">
+        </div>
+
+
+    </div>
 
 </div>
 
