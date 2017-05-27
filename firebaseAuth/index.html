@@ -22,15 +22,25 @@
 </head>
 <body ng-app="backend">
 
-<div ng-controller="testCtrl as test">
- {{test.obj.name}}
+<!--<div ng-controller="testCtrl as test">-->
+ <!--{{test.obj.name}}-->
 
-   <input type="text" ng-model="students.name">
+   <!--<input type="text" ng-model="project.name">-->
+    <!--<button ng-click="test.addProjects(project)">Add Project</button>-->
 
-    <p ng-repeat="t in test.projectsArr">
-        {{t.$value}}
-    </p>
-    {{students.name}}
+    <!--<p ng-repeat="t in test.projectsArr">-->
+        <!--{{t.name}}-->
+    <!--</p>-->
+    <!--{{students.name}}-->
+<!--</div>-->
+<div ng-controller="authCtrl as auth">
+
+    <button ng-click="auth.login('google')">Login with Google</button>
+    <button ng-click="auth.login('facebook')">Login with Facebook</button>
+
+
+    Logged in User : {{auth.user.displayName}}
+
 </div>
 
 </body>

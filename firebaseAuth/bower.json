@@ -1,0 +1,21 @@
+{
+  "name": "firebaseBasics",
+  "homepage": "https://github.com/abhishekrathore/Angular-Feb",
+  "authors": [
+    "Abhishek Rathore <rathore.abhishek87@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "firebase": "^4.0.0",
+    "angularfire": "^2.3.0"
+  }
+}
