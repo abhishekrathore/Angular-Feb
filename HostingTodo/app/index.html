@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="bower_components/localforage/dist/localforage.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-localforage/dist/angular-localForage.min.js"></script>
+    <script src="bower_components/firebase/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDXsySTamKWEzHSwRS2XGQL-5MYAflaqW8",
+            authDomain: "fir-demo-9b484.firebaseapp.com",
+            databaseURL: "https://fir-demo-9b484.firebaseio.com",
+            projectId: "fir-demo-9b484",
+            storageBucket: "fir-demo-9b484.appspot.com",
+            messagingSenderId: "913797511873"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="bower_components/angularfire/dist/angularfire.js"></script>
+
+    <script src="app.js"></script>
+    <script src="controller.js"></script>
+    <script src="services.js"></script>
+
+    <style>
+        .done{
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body ng-app="todo">
+
+<div ng-controller="todoCtrl as todo">
+    <input class="form-control" type="text" ng-model="todo.task">
+    <button class="btn btn-success form-control" ng-click="todo.addTask(todo.task)">Add Task</button>
+
+    <ul class="list-group row">
+        <li class="list-group-item col-xs-12 col-sm-6 col-md-3"  ng-class="{'done':task.status,'list-group-item-danger':!task.status,'list-group-item-success':task.status}" ng-repeat="task in todo.tasks"> {{task.text}}
+        <button class="btn" ng-class="{'btn-warning':task.status,'btn-primary':!task.status}" ng-click="todo.completeTask(task)">{{task.status?'undo':'done'}}</button>
+        </li>
+    </ul>
+</div>
+
+
+
+
+</body>
+</html>
