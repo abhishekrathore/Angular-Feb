@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/firebase/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDXsySTamKWEzHSwRS2XGQL-5MYAflaqW8",
+            authDomain: "fir-demo-9b484.firebaseapp.com",
+            databaseURL: "https://fir-demo-9b484.firebaseio.com",
+            projectId: "fir-demo-9b484",
+            storageBucket: "fir-demo-9b484.appspot.com",
+            messagingSenderId: "913797511873"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="bower_components/angularfire/dist/angularfire.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-app="backend">
+
+<div ng-controller="testCtrl as test">
+
+     <input type="file" name="file" id="file">
+     <button ng-click="test.upload()">Upload file</button> {{test.percent}}%
+     <div ng-repeat = "file in test.files">
+     <a ng-href="{{file.url}}" alt="">Download</a>
+     </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-app="starter">
+
+    <ion-pane ng-controller="listCtrl as list">
+     <div class="bar bar-header bar-positive">
+       <button class="button button-clear">
+          <i class="icon ion-navicon-round"></i>
+       </button>
+        <h1 class="title">Whatsapp</h1>
+      </div>
+      <ion-content class="has-header">
+        <ion-list>
+
+
+             <ion-item  class="item item-avatar" ng-repeat="item in list.items">
+                <img src="venkman.jpg">
+                 <h2>{{item}}</h2>
+               <p>Back off, man. I'm a scientist.</p>
+             
+                <ion-option-button class="button-assertive"
+                       ng-click="list.share()">
+                      Share
+                 </ion-option-button>
+             </ion-item>
+
+        </ion-list>
+        <button class="button button-positive" ng-click="list.open()">Open</button>
+              <button class="button button-assertive" ng-click="list.flash()">Flash</button>
+              <button class="button button-balanced" ng-click="list.capture()">Capture</button>
+               <button class="button button-info" ng-click="list.location()">location</button>
+               <button class="button button-primary" ng-click="list.share()">Share</button>
+               <button class="button button-assertive" ng-click="list.scan()">Scan</button>
+
+             <img id="img">
+      </ion-content>
+
+
+      <div class="bar bar-footer bar-balanced">
+  <div class="title">Footer</div>
+    </div>
+    </ion-pane>
+  </body>
+</html>
